@@ -17,6 +17,18 @@ config :auth_countdown, AuthCountdownWeb.Endpoint,
   pubsub: [name: AuthCountdown.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Configures Ueberauth
+config :ueberauth, Ueberauth,
+  providers: [
+    auth0: { Ueberauth.Strategy.Auth0, []},
+  ]
+
+# Configures Auth0 provider for Ueberauth
+config :ueberauth, Ueberauth.Strategy.Auth0.OAuth,
+  domain: Application.get_env(:auth_countdown, :auth0_domain),
+  client_id: Application.get_env(:auth_countdown, :auth0_client_key),
+  client_secret: Application.get_env(:auth_countdown,:auth0_client_secret)
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

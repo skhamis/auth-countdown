@@ -22,6 +22,21 @@ defmodule AuthCountdown.Events do
   end
 
   @doc """
+  Returns list of events in the future
+
+  ## Examples
+
+    iex> list_future_events()
+    [%Event{}, ...]
+
+  """
+  def list_future_events do
+    query = from e in Event,
+      where: e.due >= ^DateTime.utc_now
+    Repo.all(query)
+  end
+
+  @doc """
   Gets a single event.
 
   Raises `Ecto.NoResultsError` if the Event does not exist.

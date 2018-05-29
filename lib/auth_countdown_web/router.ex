@@ -1,5 +1,6 @@
 defmodule AuthCountdownWeb.Router do
   use AuthCountdownWeb, :router
+  require Ueberauth
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,10 +14,19 @@ defmodule AuthCountdownWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/auth", AuthCountdownWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+    post "/:provider/callback", AuthController, :callback
+  end
+
   scope "/", AuthCountdownWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/logout", AuthController, :logout
     resources "/events", EventController 
   end
 

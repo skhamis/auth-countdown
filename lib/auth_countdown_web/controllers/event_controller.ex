@@ -1,8 +1,23 @@
 defmodule AuthCountdownWeb.EventController do
   use AuthCountdownWeb, :controller
+  require Logger
 
   alias AuthCountdown.Events
   alias AuthCountdown.Events.Event
+
+  plug :secure
+
+  defp secure(conn, _params) do
+    user = get_session(conn, :current_user)
+    Logger.warn("hi")
+    case user do
+      nil ->
+        conn |> redirect(to: "/auth/auth0") |> halt
+      _->
+        conn
+        |> assign(:current_user, user)
+    end
+  end
 
   def index(conn, _params) do
     events = Events.list_events()

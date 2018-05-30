@@ -1,5 +1,9 @@
 # AuthCountdown
 
+To fix:
+- Application.get_env("stuff here") does not work in config.exs
+
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

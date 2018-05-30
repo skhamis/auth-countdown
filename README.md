@@ -1,5 +1,7 @@
 # AuthCountdown
 
+![Screenshot](https://github.com/skhamis/auth-countdown/blob/master/media/Capture.PNG)
+
 To fix:
 - Application.get_env("stuff here") does not work in config.exs
 

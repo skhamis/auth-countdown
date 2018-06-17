@@ -2,6 +2,9 @@
 
 ![Screenshot](https://github.com/skhamis/auth-countdown/blob/master/media/Capture.PNG)
 
+## New feature! Chat!
+![Screenshot](https://github.com/skhamis/auth-countdown/blob/master/media/chat_example.PNG)
+
 To fix:
 - Application.get_env("stuff here") does not work in config.exs
 

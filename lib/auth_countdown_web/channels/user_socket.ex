@@ -2,7 +2,7 @@ defmodule AuthCountdownWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", AuthCountdownWeb.RoomChannel
+  channel "room:*", AuthCountdownWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

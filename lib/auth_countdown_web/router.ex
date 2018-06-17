@@ -27,6 +27,7 @@ defmodule AuthCountdownWeb.Router do
 
     get "/", PageController, :index
     get "/logout", AuthController, :logout
+    get "/chat", ChatController, :index
     resources "/events", EventController 
   end
 

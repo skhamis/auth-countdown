@@ -22,9 +22,11 @@
           <%= if @current_user do %>
             <li><a href="/">Home</a></li>
             <li><a href="/events">Events</a></li>
+            <li><a href="/chat">Chat</a></li>
             <li class="active"><a href="/logout">Logout</a></li>
           <% else %>  
             <li><a href="/">Home</a></li>
+            <li><a href="/chat">Chat</a></li>
             <li><a href="/auth/auth0">Login</a></li>
           <%end%>
           </ul>
